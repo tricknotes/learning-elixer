@@ -1,4 +1,6 @@
 defmodule MyList do
-  def sum([]),            do: 0
-  def sum([head | tail]), do: head + sum(tail)
+  def sum(list), do: sum(list, 0)
+
+  defp sum([], total),            do: total
+  defp sum([head | tail], total), do: sum(tail, head + total)
 end
