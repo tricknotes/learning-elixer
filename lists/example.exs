@@ -6,4 +6,10 @@ defmodule MyList do
 
   defp _max([], current),            do: current
   defp _max([head | tail], current), do: if current > head, do: _max(tail, current), else: _max(tail, head)
+
+  def seasar([], n),            do: []
+  def seasar([head | tail], n), do: [rorate_seasar(head + n) | seasar(tail, n)]
+
+  defp rorate_seasar(char) when char > ?z, do: rem(char, ?a)
+  defp rorate_seasar(char),                do: char
 end
